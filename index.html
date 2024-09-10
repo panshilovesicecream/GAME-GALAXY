@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Galaxy</title>
+    <style>
+        /* General styles for the background and page layout */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgb(28, 17, 30);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for buttons */
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Button styling */
+        .button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            margin: 10px auto;
+            font-size: 18px;
+            background-color: #b8b217;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #350850;
+        }
+
+        /* Centering the big start button */
+        #startButton {
+            width: 300px;
+            font-size: 24px;
+        }
+
+        /* Starry background container */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: black;
+            overflow: hidden;
+        }
+
+        /* Styling individual stars */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: moveStars 5s linear infinite;
+        }
+
+        /* Keyframe animation to move stars downwards */
+        @keyframes moveStars {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Starry background -->
+    <div class="stars" id="starContainer"></div>
+
+    <!-- Container with buttons in front of the stars -->
+    <div class="container">
+        <!-- Other buttons redirecting to different pages -->
+        <button class="button" onclick="window.location.href='runner.html'">RUNNER</button>
+        <button class="button" onclick="window.location.href='maze.html'">MAZE</button>
+        <button class="button" onclick="window.location.href='shooter.html'">SHOOTER</button>
+
+        <!-- The big start button centered -->
+        <button class="button" id="startButton" onclick="window.location.href='runner.html'">Start</button>
+    </div>
+
+    <script>
+        // JavaScript to generate stars
+        function generateStars() {
+            const starContainer = document.getElementById('starContainer');
+            const starCount = 100;  // Number of stars
+
+            for (let i = 0; i < starCount; i++) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position for each star
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.left = Math.random() * 100 + 'vw';
+                
+                // Random duration for each star's animation
+                star.style.animationDuration = Math.random() * 3 + 2 + 's';
+                
+                // Add the star to the container
+                starContainer.appendChild(star);
+            }
+        }
+
+        // Call the function to generate stars on page load
+        generateStars();
+    </script>
+
+</body>
+</html>

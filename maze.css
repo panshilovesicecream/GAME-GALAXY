@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+  }
+  
+  #game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #maze {
+    background-color: black;
+    border: 2px solid white;
+  }
+  
+  #info {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #score {
+    margin-top: 10px;
+    color: white;
+    font-size: 18px;
+  }
+  
